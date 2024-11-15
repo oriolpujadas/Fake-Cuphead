@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://te8r2df5q2u7"]
+
+[ext_resource type="Texture2D" uid="uid://ianensgew2dj" path="res://Asets/title screen/Background/title_screen_background.png" id="1_pu6kq"]
+[ext_resource type="FontFile" uid="uid://dku4hq007qwxs" path="res://Asets/Fonts/CupheadVogue-ExtraBold-merged.ttf" id="2_4kj1g"]
+[ext_resource type="Script" path="res://press_button.gd" id="3_fkl1b"]
+[ext_resource type="PackedScene" uid="uid://cqcf5kv82jnhb" path="res://menu_personatges.tscn" id="4_s2k3n"]
+
+[node name="Main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_pu6kq")
+stretch_mode = 5
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -232.0
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.4, 1.4)
+
+[node name="separador" type="Control" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(0, 245)
+layout_mode = 2
+
+[node name="characters" parent="VBoxContainer2" instance=ExtResource("4_s2k3n")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_right = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="Press_button" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.737255, 0.298039, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 2
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("2_4kj1g")
+theme_override_font_sizes/font_size = 50
+text = "Press Any Key"
+script = ExtResource("3_fkl1b")
+
+[node name="any_button_timer" type="Timer" parent="VBoxContainer/Press_button"]
+wait_time = 0.75
+
+[node name="separador" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="timeout" from="VBoxContainer/Press_button/any_button_timer" to="VBoxContainer/Press_button" method="_on_any_button_timer_timeout"]
