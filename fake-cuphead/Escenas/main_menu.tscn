@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://te8r2df5q2u7"]
+[gd_scene load_steps=6 format=3 uid="uid://te8r2df5q2u7"]
 
 [ext_resource type="Texture2D" uid="uid://ianensgew2dj" path="res://Asets/title screen/Background/title_screen_background.png" id="1_pu6kq"]
 [ext_resource type="FontFile" uid="uid://dku4hq007qwxs" path="res://Asets/Fonts/CupheadVogue-ExtraBold-merged.ttf" id="2_4kj1g"]
 [ext_resource type="Script" path="res://press_button.gd" id="3_fkl1b"]
 [ext_resource type="PackedScene" uid="uid://cqcf5kv82jnhb" path="res://Escenas/menu_personatges.tscn" id="4_s2k3n"]
+[ext_resource type="PackedScene" uid="uid://8dkbwjkldtq4" path="res://Escenas/transicio.tscn" id="5_801qy"]
 
 [node name="Main_menu" type="Control"]
 layout_mode = 3
@@ -78,11 +79,6 @@ wait_time = 0.75
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CanvasLayer" parent="." instance=ExtResource("5_801qy")]
 
 [connection signal="timeout" from="VBoxContainer/Press_button/any_button_timer" to="VBoxContainer/Press_button" method="_on_any_button_timer_timeout"]
