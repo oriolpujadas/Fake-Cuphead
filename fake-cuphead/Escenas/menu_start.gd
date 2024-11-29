@@ -1,6 +1,7 @@
 extends Control
 @onready var start_button: Button = $VBoxContainer/StartButton
 @onready var options_button: Button = $VBoxContainer/OptionsButton
+@onready var exit_button: Button = $VBoxContainer/ExitButton
 
 # Lista de botones en orden
 var buttons = []
@@ -8,10 +9,13 @@ var current_index = 0  # Índice del botón actualmente enfocado
 
 func _ready():
 	# Inicializamos la lista de botones
-	buttons = [start_button, options_button]
+	
+	buttons = [start_button, options_button,exit_button]
 	
 	# Establecemos el foco inicial
 	buttons[current_index].grab_focus()
+	
+	
 
 func _input(event):
 	if event.is_action_pressed("up"):  # W o dirección arriba
