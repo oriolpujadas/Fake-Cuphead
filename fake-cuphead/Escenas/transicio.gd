@@ -19,6 +19,10 @@ func  _input(event: InputEvent) -> void:
 		play_transition_animation()
 		await get_tree().create_timer(1.70).timeout
 		get_tree().change_scene_to_file("res://Escenas/menu_inicio.tscn")
+	if Input.is_action_just_pressed("start"):
+		play_transition_animation()
+		await get_tree().create_timer(1.70).timeout
+		get_tree().change_scene_to_file("res://Escenas/game.tscn")
 		
 func play_transition_animation():
 	if animation_player:
