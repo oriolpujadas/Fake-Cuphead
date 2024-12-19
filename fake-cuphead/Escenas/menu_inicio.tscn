@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://brhxo6j5pkg00"]
+[gd_scene load_steps=14 format=3 uid="uid://brhxo6j5pkg00"]
 
 [ext_resource type="Texture2D" uid="uid://c4742xrbm0q0l" path="res://Asets/MenuStart/Captura de pantalla 2024-11-15 172535.png" id="1_yj652"]
 [ext_resource type="FontFile" uid="uid://dku4hq007qwxs" path="res://Asets/Fonts/CupheadVogue-ExtraBold-merged.ttf" id="2_51myo"]
 [ext_resource type="Script" path="res://Escenas/menu_start.gd" id="2_bhy46"]
+[ext_resource type="PackedScene" uid="uid://8dkbwjkldtq4" path="res://Escenas/transicio.tscn" id="4_5ahnc"]
 
 [sub_resource type="Theme" id="Theme_gcama"]
 
@@ -103,3 +104,5 @@ text = "EXIT
 
 "
 flat = true
+
+[node name="CanvasLayer" parent="." instance=ExtResource("4_5ahnc")]
