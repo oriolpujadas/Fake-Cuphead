@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://brhxo6j5pkg00"]
+[gd_scene load_steps=14 format=3 uid="uid://brhxo6j5pkg00"]
 
 [ext_resource type="Texture2D" uid="uid://c4742xrbm0q0l" path="res://Asets/MenuStart/Captura de pantalla 2024-11-15 172535.png" id="1_yj652"]
 [ext_resource type="FontFile" uid="uid://dku4hq007qwxs" path="res://Asets/Fonts/CupheadVogue-ExtraBold-merged.ttf" id="2_51myo"]
 [ext_resource type="Script" path="res://Escenas/menu_start.gd" id="2_bhy46"]
+[ext_resource type="PackedScene" uid="uid://8dkbwjkldtq4" path="res://Escenas/transicio.tscn" id="4_5ahnc"]
 
 [sub_resource type="Theme" id="Theme_gcama"]
 
@@ -86,3 +87,22 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_dfkq3")
 text = "OPTIONS
 "
 flat = true
+
+[node name="ExitButton" type="Button" parent="menuStart/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_gcama")
+theme_override_colors/font_disabled_color = Color(0.619608, 0.619608, 0.619608, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.621523, 0.621524, 0.621524, 1)
+theme_override_fonts/font = ExtResource("2_51myo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bkdyf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4to45")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ln3ij")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gf536")
+text = "EXIT
+
+"
+flat = true
+
+[node name="CanvasLayer" parent="." instance=ExtResource("4_5ahnc")]
